@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Companies List</h2>
+
+<ul>
+    {% for company in companies %}
+        <li>
+            <strong>{{ company.name }}</strong>
+
+            <div>{{ company.email }}</div>
+
+            {% if company.description %}
+                <p>{{ company.description }}</p>
+            {% endif %}
+
+            {% if company.created_at %}
+                <p>Created at: {{ company.created_at }}</p>
+            {% endif %}
+
+            {% if company.updated_at %}
+                <p>Information Last updated: {{ company.updated_at }}</p>
+            {% endif %}
+
+            {% if company.website %}
+                <p>
+                    <a href="{{ company.website }}" target="_blank">
+                        Visit Website
+                    </a>
+                </p>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
